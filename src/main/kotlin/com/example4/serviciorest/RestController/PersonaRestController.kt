@@ -19,7 +19,7 @@ class PersonaRestController {
     @Autowired
     val personController: PersonController?=null
 
-    @GetMapping("")
+    @GetMapping("get")
     fun  list():ResponseEntity<List<Persona>>{
         return try {
             ResponseEntity(personController!!.list(), HttpStatus.OK)
@@ -39,7 +39,7 @@ class PersonaRestController {
 
         }
     }
-    @PostMapping("")
+    @PostMapping("insert")
     fun insert(@RequestBody persona: Persona): ResponseEntity<Any>{
         return try{
             personController!!.save(persona)
@@ -50,7 +50,7 @@ class PersonaRestController {
             ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR)
         }
     }
-    @PutMapping("")
+    @PutMapping("update")
     fun update(@RequestBody persona: Persona):ResponseEntity<Any>{
         return  try {
             personController!!.save(persona)
