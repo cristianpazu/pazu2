@@ -2,7 +2,6 @@ package com.example4.serviciorest.RestController
 
 import com.example4.serviciorest.Controller.PersonController
 import com.example4.serviciorest.Utils.Constans
-import com.example4.serviciorest.Utils.Constans.Companion.URL_BASE_PERSONASI
 import com.example4.serviciorest.exception.ControllerException
 import com.example4.serviciorest.exception.NotFoundException
 import com.example4.serviciorest.model.Persona
@@ -45,13 +44,13 @@ class PersonaRestController {
         return try{
             personController!!.save(persona)
             val responseHeader = HttpHeaders()
-            responseHeader.set("location",Constans.URL_BASE_PERSONAS+URL_BASE_PERSONASI+"/"+persona.id)
-            ResponseEntity(responseHeader,HttpStatus.CREATED)
+            responseHeader.set("location",Constans.URL_BASE_PERSONAS+"/"+persona.id)
+            ResponseEntity( personController!!.save(persona),HttpStatus.OK)
         }catch (e:Exception){
             ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR)
         }
     }
-    @PutMapping("")
+    @PutMapping("/update")
     fun update(@RequestBody persona: Persona):ResponseEntity<Any>{
         return  try {
             personController!!.save(persona)
