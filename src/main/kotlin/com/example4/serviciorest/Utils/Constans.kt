@@ -6,7 +6,10 @@ class Constans {
         private const val URL_API_BASE="/api"
         private const val URL_API_VERSION="/v1"
         private const val URL_BASE=URL_API_BASE+URL_API_VERSION
+        private const val URL_BASE2=URL_API_BASE+URL_API_VERSION
         //base APi
         const val URL_BASE_PERSONAS="$URL_BASE/personas"
+        const val URL_BASE_PARQUEAR="$URL_BASE2/parquear"
+
     }
 }
