@@ -53,13 +53,14 @@ class PersonaRestController {
     @PutMapping("/update")
     fun update(@RequestBody persona: Persona):ResponseEntity<Any>{
         return  try {
-            personController!!.save(persona)
+            //personController!!.save(persona)
+            "actualizado"
             ResponseEntity(HttpStatus.OK)
         }catch (e:ControllerException){
             ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR)
         }
     }
-    @DeleteMapping("{id}")
+    @DeleteMapping("/delete/{id}")
     fun delete(@PathVariable("id")idPersona: Long): ResponseEntity<Any>{
         return try {
             personController!!.delete(idPersona)
