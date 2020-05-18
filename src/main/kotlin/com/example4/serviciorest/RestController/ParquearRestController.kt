@@ -62,7 +62,7 @@ class ParquearRestController {
             ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR)
         }
     }
-    @DeleteMapping("{id}")
+    @DeleteMapping("/delete/{id}")
     fun delete(@PathVariable("id")idparquear: Long): ResponseEntity<Any> {
         return try {
             parquearControlloer!!.delete(idparquear)
